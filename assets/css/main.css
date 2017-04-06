@@ -1,0 +1,63 @@
+/*.hamburguer{
+  background-color: #ff3264;
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+}
+Estilos directos para etiqueta nav*/
+nav{
+  top:0;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  height: 80px;
+  z-index: 1000;
+  margin-top: 0;
+  padding-top: 0px;
+  position: fixed;
+  background: none;
+  transition: all 0.6s cubic-bezier(0.7,0.01,0.3,1);
+}
+/*menu bar,logo y menu*/
+.logo,
+.menu{
+position: absolute;
+z-index: 2000;
+}
+.logo{
+  left: 0px;
+  top: -4px;
+  width: 70px;
+  height: 74px;
+  padding: 0.4% 2%;
+  text-align: left;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url("http://www.hugeinc.com/content/images/util/logo.png");
+}
+/*hamburguesa royal*/
+.menu{
+  top: 0;
+  right: 0;
+  height: 4px;
+  width: 24px;
+  text-align: right;
+  margin: 2rem 2rem;
+  background: #ec008c;
+  transition: all 0.3s;
+}
+.menu::before{
+  content: "";
+  position:absolute;
+  top:-9px;
+  height: 4px;
+  width: 24px;
+  background: #ec008c;
+
+}
+#toggle:hover .menu::after{
+  top: 9px;
+}
