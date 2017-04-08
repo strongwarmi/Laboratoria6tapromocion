@@ -1,88 +1,28 @@
-/*Estilos directos para etiqueta nav*/
-.nav-header{
-  top:0;
+/*Direct style for nav tag*/
+nav{
+  top: 0;
   left: 0;
   width: 100%;
   color: #fff;
   height: 80px;
   z-index: 1000;
   margin-top: 0;
-  padding-top: 0px;
   position: fixed;
+  padding-top: 0px;
   background: none;
-  transition: all 0.6s cubic-bezier(0.7,0.01,0.3,1);
-  background: #000000;
+  transition: all 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
+  background-color: #000;
 }
-/*menu bar,logo y menu*/
-.logo,
-.menu{
-position: absolute;
-z-index: 2;
+/*Javascript style toggle for menu appear and desappear*/
+.header-in{
+  background-color: rgba(247, 182, 23, 0.81);
 }
-.logo{
-  left: 2rem;
-  top: -4px;
-  width: 70px;
-  height: 74px;
-  padding: 0.4% 2%;
-  text-align: left;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  /*los dos puntos en la ruta de la imagen significa q debes salir un directorio para recien ingresar a images*/
-  background-image: url("../img/laboratoria.svg");
-}
-/*hamburguesa royal*/
-.menu{
-  top: 0;
-  right: 0;
-  height: 4px;
-  width: 24px;
-  text-align: right;
-  margin: 2rem 2rem;
-  background: #F9A91A;
-  transition: all 0.3s;
-}
-.menu::before{
-  top:-8px;
-}
-.menu::after{
-  top:8px;
-}
-.menu::after,
-.menu::before{
-  content: "";
-  position:absolute;
-  right: 0;
-  height: 4px;
-  width: 24px;
-  background: #F9A91A;
-  transition: all 0.3s;
-}
-#toggle:hover::before {
-  top: -10px;
-}
-#toggle:hover::after {
-  top: 10px;
-}
+/**/
+/*Navgation general styles*/
 /*Background Menu*/
-/*la clase open se agreg por js para que la hamburguesa cambie a una X*/
-.open .menu {
-  background: none !important;
-}
-.open .menu:after {
-  top: 0 !important;
-  background: #fff !important;
-  transform: rotate(45deg);
-}
-.open .menu:before {
-  top: 0 !important;
-  background: #fff !important;
-  transform: rotate(-45deg);
-}
-/* le damos color al menu q aparecera al presionar la hamburguesa*/
 nav .nav-background {
   top: 0px;
-  opacity:0;/*con esta propiedad el listado se oculta*/
+  opacity:0;
   width: 100%;
   height: 100%;
   z-index: 1500;
@@ -103,7 +43,7 @@ nav.open {
   -moz-transition: none;
   -webkit-transition: none;
 }
-/*ahora la lista tmb necesita estilos*/
+/*Navigation list*/
 nav ul {
   top: -10%;
   padding: 0;
@@ -129,4 +69,95 @@ nav ul li a{
 nav ul li a:hover{
   color:#f7b617;
   background-color: white;
+}
+nav.open ul {
+  top: 0;
+  opacity: 1;
+  margin-top: 0;
+  visibility: visible;
+  transform: perspective(600px) rotateX(0deg);
+}
+nav.open ul li {
+  color:#fff;
+  font-size: 60px;
+  visibility: visible !important;
+}
+/*Menu bar logo and menu styles general*/
+/*Logo*/
+.menu{
+  position: absolute;
+  z-index: 2000;
+}
+.logo{
+  left:15px;
+  position: absolute;
+  top:-4px;
+  width: 70px;
+  height: 74px;
+  padding: 0.4% 3%;
+  text-align: left;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url(../img/laboratoria.svg);
+}
+/*Hamburger*/
+.menu{
+  top:0;
+  right:0;
+  height: 4px;
+  width: 24px;
+  text-align:right;
+  margin: 2rem 2rem;
+  background: #f7b617;
+  transition: all 0.3s;
+}
+.menu:before{
+  top: -8px;
+}
+.menu:after{
+  top: 8px;
+}
+#toggle:hover:before {
+  top: -9px;
+}
+#toggle:hover:after {
+  top: 9px;
+}
+.menu:before,
+.menu:after{
+  content: '';
+  width: 24px;
+  height: 4px;
+  z-index: -1;
+  display: block;
+  position: absolute;
+  background: #f7b617;
+  transition: all 0.3s;
+}
+#toggle:hover {
+  transition: top 0.4s;
+}
+/*Javascript style toggle for menu appear and desappear style background*/
+.solid #toggle .menu {
+  background: #fff;
+}
+.solid #toggle .menu:after{
+  background-color: #fff;
+}
+.solid #toggle .menu:before{
+  background-color: #fff;
+}
+/*Javascript style toggle for menu hamburger appear and desappear*/
+.open .menu {
+  background: none !important;
+}
+.open .menu:after {
+  top: 0 !important;
+  background: #fff !important;
+  transform: rotate(45deg);
+}
+.open .menu:before {
+  top: 0 !important;
+  background: #fff !important;
+  transform: rotate(-45deg);
 }
